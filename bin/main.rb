@@ -1,3 +1,1 @@
-#!/usr/bin/envy ruby
-
-p "Hello World!"
+p 'Hello World!'
