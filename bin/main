@@ -1,2 +1,14 @@
 #!/usr/bin/env ruby
-p 'Hello World!'
+puts 'Tic-Tac-Toe : Terminal Edition'
+#Player1 Input
+puts 'Player 1, please enter your name'
+p1 = gets.chomp
+puts 'Player 2, please enter your name'
+p2 = gets.chomp
+puts "Welcome #{p1} and #{p2}"
+puts "#{p1}, X or O?"
+p1_xo = gets.chomp
+p2_xo = p1_xo == "X" ? p2_xo = "O" : p2_xo = "X"
+puts "#{p1} is #{p1_xo}, #{p2} is #{p2_xo}"
+print '╔═══╦═══╦═══╗'"\n" '║   ║   ║   ║' "\n" '╠═══╬═══╬═══╣' "\n" '║   ║   ║   ║' "\n" '╠═══╬═══╬═══╣' "\n" '║   ║   ║   ║' "\n" '╚═══╩═══╩═══╝' "\n"
+
