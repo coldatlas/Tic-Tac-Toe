@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 puts 'Tic-Tac-Toe : Terminal Edition'
-#Player1 Input
+# Player1 Input
 puts 'Player 1, please enter your name'
 p1 = gets.chomp
 puts 'Player 2, please enter your name'
@@ -8,19 +8,21 @@ p2 = gets.chomp
 puts "Welcome #{p1} and #{p2}"
 puts "#{p1}, X or O?"
 p1_xo = gets.chomp
-p2_xo = p1_xo == "X" ? p2_xo = "O" : p2_xo = "X"
+p2_xo = p1_xo == 'X' ? 'O' : 'X'
 puts "#{p1} is #{p1_xo}, #{p2} is #{p2_xo}"
-print '╔═══╦═══╦═══╗'"\n" '║ 1 ║ 2 ║ 3 ║' "\n" '╠═══╬═══╬═══╣' "\n" '║ 4 ║ 5 ║ 6 ║' "\n" '╠═══╬═══╬═══╣' "\n" '║ 7 ║ 8 ║ 9 ║' "\n" '╚═══╩═══╩═══╝' "\n"
-puts "Instructions : Enter a number from 1 to 9 to use one of the boxes." "\n"
+print '╔═══╦═══╦═══╗ \n ║ 1 ║ 2 ║ 3 ║ \n ╠═══╬═══╬═══╣ \n ║ 4 ║ 5 ║ 6 ║
+\n ╠═══╬═══╬═══╣ \n ║ 7 ║ 8 ║ 9 ║ \n ╚═══╩═══╩═══╝ \n'
+puts 'Instructions : Enter a number from 1 to 9 to use one of the boxes. \n'
 start = true
-while start = true
-print '╔═══╦═══╦═══╗'"\n" '║   ║   ║   ║' "\n" '╠═══╬═══╬═══╣' "\n" '║   ║   ║   ║' "\n" '╠═══╬═══╬═══╣' "\n" '║   ║   ║   ║' "\n" '╚═══╩═══╩═══╝' "\n"
-puts "#{p1}'s turn : "
-p1_position = gets.chomp
-# updates position of player 1 on the board
-puts "#{p2}'s turn : "
-p2_position = gets.chomp
-# updates position of player 2 on the board
+while start == true
+  print '╔═══╦═══╦═══╗ \n ║   ║   ║   ║ \n ╠═══╬═══╬═══╣ \n ║   ║   ║   ║ \n ╠═══╬═══╬═══╣
+  \n ║   ║   ║   ║ \n ╚═══╩═══╩═══╝ \n'
+  puts "#{p1}'s turn : "
+  # p1_position
+  # updates position of player 1 on the board
+  puts "#{p2}'s turn : "
+  # p2_position
+  # updates position of player 2 on the board
 end
 # break loop when a win condition is met
 # puts "#{winner} Wins !"
