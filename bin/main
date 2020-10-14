@@ -13,12 +13,12 @@ p2_xo = p1_xo == 'X' ? 'O' : 'X'
 # variable for each position
 # a range of remaining boxes
 puts "#{p1} is #{p1_xo}, #{p2} is #{p2_xo}"
-puts '╔═══╦═══╦═══╗' 
-puts '║ 1 ║ 2 ║ 3 ║' 
-puts '╠═══╬═══╬═══╣' 
+puts '╔═══╦═══╦═══╗'
+puts '║ 1 ║ 2 ║ 3 ║'
+puts '╠═══╬═══╬═══╣'
 puts '║ 4 ║ 5 ║ 6 ║'
 puts '╠═══╬═══╬═══╣'
-puts '║ 7 ║ 8 ║ 9 ║' 
+puts '║ 7 ║ 8 ║ 9 ║'
 puts '╚═══╩═══╩═══╝'
 puts 'Instructions : Enter a number from 1 to 9 to use one of the boxes.'
 start = true
