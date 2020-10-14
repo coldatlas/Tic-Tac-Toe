@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# rubocop:disable Lint/UselessAssignment, Style/IdenticalConditionalBranches, Lint/ConditionPosition
 puts 'Tic-Tac-Toe : Terminal Edition'
 # Player1 Input
 puts 'Player 1, please enter your name'
@@ -22,27 +23,28 @@ puts '╚═══╩═══╩═══╝'
 puts 'Instructions : Enter a number from 1 to 9 to use one of the boxes.'
 start = true
 while start == true
-  puts '╔═══╦═══╦═══╗' 
-  puts '║   ║   ║   ║' 
-  puts '╠═══╬═══╬═══╣' 
+  puts '╔═══╦═══╦═══╗'
   puts '║   ║   ║   ║'
   puts '╠═══╬═══╬═══╣'
-  puts '║   ║   ║   ║' 
+  puts '║   ║   ║   ║'
+  puts '╠═══╬═══╬═══╣'
+  puts '║   ║   ║   ║'
   puts '╚═══╩═══╩═══╝'
   puts "#{p1}'s turn : "
   # updates position of player 1 on the board
   p1_position = gets.chomp
-  #checks if the position is available
+  # checks if the position is available
   puts "#{p2}'s turn : "
   # updates position of player 2 on the board
   p2_position = gets.chomp
-  #checks if the position is available
+  # checks if the position is available
   win_combination = false
   if win_combination == true
     puts "One of the players wins!"
     start = false
-  else #neither player makes a win combination
-    puts "Draw!"
+  else # neither player makes a win combination
+    puts 'Draw!'
     start = false
   end
 end
+# rubocop:enable Lint/UselessAssignment, Style/IdenticalConditionalBranches, Lint/ConditionPosition
