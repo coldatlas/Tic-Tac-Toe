@@ -47,4 +47,4 @@ while start == true
     start = false
   end
 end
-# rubocop:enable Lint/UselessAssignment, Style/IdenticalConditionalBranches, Lint/ConditionPosition
+# rubocop:enable Lint/UselessAssignment, Style/IdenticalConditionalBranches
