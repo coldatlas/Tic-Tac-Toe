@@ -40,7 +40,7 @@ while start == true
   # checks if the position is available
   win_combination = false
   if win_combination == true
-    puts "One of the players wins!"
+    puts 'One of the players wins!'
     start = false
   else # neither player makes a win combination
     puts 'Draw!'
