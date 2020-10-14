@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-# rubocop:disable Lint/UselessAssignment, Style/IdenticalConditionalBranches, Lint/ConditionPosition
+# rubocop:disable Lint/UselessAssignment, Style/IdenticalConditionalBranches
 puts 'Tic-Tac-Toe : Terminal Edition'
 # Player1 Input
 puts 'Player 1, please enter your name'
