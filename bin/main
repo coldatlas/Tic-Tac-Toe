@@ -9,20 +9,40 @@ puts "Welcome #{p1} and #{p2}"
 puts "#{p1}, X or O?"
 p1_xo = gets.chomp
 p2_xo = p1_xo == 'X' ? 'O' : 'X'
+# variable for each position
+# a range of remaining boxes
 puts "#{p1} is #{p1_xo}, #{p2} is #{p2_xo}"
-print '╔═══╦═══╦═══╗ \n ║ 1 ║ 2 ║ 3 ║ \n ╠═══╬═══╬═══╣ \n ║ 4 ║ 5 ║ 6 ║
-\n ╠═══╬═══╬═══╣ \n ║ 7 ║ 8 ║ 9 ║ \n ╚═══╩═══╩═══╝ \n'
-puts 'Instructions : Enter a number from 1 to 9 to use one of the boxes. \n'
+puts '╔═══╦═══╦═══╗' 
+puts '║ 1 ║ 2 ║ 3 ║' 
+puts '╠═══╬═══╬═══╣' 
+puts '║ 4 ║ 5 ║ 6 ║'
+puts '╠═══╬═══╬═══╣'
+puts '║ 7 ║ 8 ║ 9 ║' 
+puts '╚═══╩═══╩═══╝'
+puts 'Instructions : Enter a number from 1 to 9 to use one of the boxes.'
 start = true
 while start == true
-  print '╔═══╦═══╦═══╗ \n ║   ║   ║   ║ \n ╠═══╬═══╬═══╣ \n ║   ║   ║   ║ \n ╠═══╬═══╬═══╣
-  \n ║   ║   ║   ║ \n ╚═══╩═══╩═══╝ \n'
+  puts '╔═══╦═══╦═══╗' 
+  puts '║   ║   ║   ║' 
+  puts '╠═══╬═══╬═══╣' 
+  puts '║   ║   ║   ║'
+  puts '╠═══╬═══╬═══╣'
+  puts '║   ║   ║   ║' 
+  puts '╚═══╩═══╩═══╝'
   puts "#{p1}'s turn : "
-  # p1_position
   # updates position of player 1 on the board
+  p1_position = gets.chomp
+  #checks if the position is available
   puts "#{p2}'s turn : "
-  # p2_position
   # updates position of player 2 on the board
+  p2_position = gets.chomp
+  #checks if the position is available
+  win_combination = false
+  if win_combination == true
+    puts "One of the players wins!"
+    start = false
+  else #neither player makes a win combination
+    puts "Draw!"
+    start = false
+  end
 end
-# break loop when a win condition is met
-# puts "#{winner} Wins !"
