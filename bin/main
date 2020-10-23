@@ -34,10 +34,27 @@ while start == true
   # updates position of player 1 on the board
   p1_position = gets.chomp
   # checks if the position is available
+  # Shows the board with the updated position
+  puts '╔═══╦═══╦═══╗'
+  puts '║   ║   ║   ║'
+  puts '╠═══╬═══╬═══╣'
+  puts '║   ║   ║   ║'
+  puts '╠═══╬═══╬═══╣'
+  puts '║   ║   ║   ║'
+  puts '╚═══╩═══╩═══╝'
   puts "#{p2}'s turn : "
   # updates position of player 2 on the board
   p2_position = gets.chomp
   # checks if the position is available
+  # Shows the board with the updated position
+  puts '╔═══╦═══╦═══╗'
+  puts '║   ║   ║   ║'
+  puts '╠═══╬═══╬═══╣'
+  puts '║   ║   ║   ║'
+  puts '╠═══╬═══╬═══╣'
+  puts '║   ║   ║   ║'
+  puts '╚═══╩═══╩═══╝'
+  # if a player makes a winning move, show "player 1 wins" or "player 2 wins"
   win_combination = false
   if win_combination == true
     puts 'One of the players wins!'
