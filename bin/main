@@ -34,6 +34,7 @@ while start == true
   # updates position of player 1 on the board
   p1_position = gets.chomp
   # checks if the position is available
+  # if the position isn't available, game tells player "Invalid move"
   # Shows the board with the updated position
   puts '╔═══╦═══╦═══╗'
   puts '║   ║   ║   ║'
@@ -46,6 +47,7 @@ while start == true
   # updates position of player 2 on the board
   p2_position = gets.chomp
   # checks if the position is available
+  # if the position isn't available, game tells player "Invalid move"
   # Shows the board with the updated position
   puts '╔═══╦═══╦═══╗'
   puts '║   ║   ║   ║'
