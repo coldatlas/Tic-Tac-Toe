@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-# rubocop:disable Lint/UselessAssignment, Style/IdenticalConditionalBranches
+# rubocop:disable Lint/UselessAssignment
 puts 'Tic-Tac-Toe : Terminal Edition'
 # Player1 Input
 puts 'Player 1, please enter your name'
@@ -28,6 +28,7 @@ while start == true
   p1_position = gets.chomp
   # checks if the position is available
   # if the position isn't available, game tells player "Invalid move"
+  # if the position is a winning move, game tells player "You Win!"
   # Shows the board with the updated position
   puts '╔═══╦═══╦═══╗'
   puts '║   ║   ║   ║'
@@ -41,6 +42,7 @@ while start == true
   p2_position = gets.chomp
   # checks if the position is available
   # if the position isn't available, game tells player "Invalid move"
+  # if the position is a winning move, game tells player "You Win!"
   # Shows the board with the updated position
   puts '╔═══╦═══╦═══╗'
   puts '║   ║   ║   ║'
@@ -60,4 +62,4 @@ while start == true
   # start = false
   # end
 end
-# rubocop:enable Lint/UselessAssignment, Style/IdenticalConditionalBranches
+# rubocop:enable Lint/UselessAssignment
