@@ -1,2 +1,65 @@
 #!/usr/bin/env ruby
-p 'Hello World!'
+# rubocop:disable Lint/UselessAssignment
+puts 'Tic-Tac-Toe : Terminal Edition'
+# Player1 Input
+puts 'Player 1, please enter your name'
+p1 = gets.chomp
+puts 'Player 2, please enter your name'
+p2 = gets.chomp
+puts "Welcome #{p1} and #{p2}"
+puts "#{p1}, X or O?"
+p1_xo = gets.chomp
+p2_xo = p1_xo == 'X' ? 'O' : 'X'
+# variable for each position
+# a range of remaining boxes
+puts "#{p1} is #{p1_xo}, #{p2} is #{p2_xo}"
+puts '╔═══╦═══╦═══╗'
+puts '║ 1 ║ 2 ║ 3 ║'
+puts '╠═══╬═══╬═══╣'
+puts '║ 4 ║ 5 ║ 6 ║'
+puts '╠═══╬═══╬═══╣'
+puts '║ 7 ║ 8 ║ 9 ║'
+puts '╚═══╩═══╩═══╝'
+puts 'Instructions : Enter a number from 1 to 9 to use one of the boxes.'
+start = true
+while start == true
+  puts "#{p1}'s turn : "
+  # updates position of player 1 on the board
+  p1_position = gets.chomp
+  # checks if the position is available
+  # if the position isn't available, game tells player "Invalid move"
+  # if the position is a winning move, game tells player "You Win!"
+  # Shows the board with the updated position
+  puts '╔═══╦═══╦═══╗'
+  puts '║   ║   ║   ║'
+  puts '╠═══╬═══╬═══╣'
+  puts '║   ║   ║   ║'
+  puts '╠═══╬═══╬═══╣'
+  puts '║   ║   ║   ║'
+  puts '╚═══╩═══╩═══╝'
+  puts "#{p2}'s turn : "
+  # updates position of player 2 on the board
+  p2_position = gets.chomp
+  # checks if the position is available
+  # if the position isn't available, game tells player "Invalid move"
+  # if the position is a winning move, game tells player "You Win!"
+  # Shows the board with the updated position
+  puts '╔═══╦═══╦═══╗'
+  puts '║   ║   ║   ║'
+  puts '╠═══╬═══╬═══╣'
+  puts '║   ║   ║   ║'
+  puts '╠═══╬═══╬═══╣'
+  puts '║   ║   ║   ║'
+  puts '╚═══╩═══╩═══╝'
+  # if a player makes a winning move, show "player 1 wins" or "player 2 wins"
+  # win_combination = false
+  # if win_combination == true
+  # puts 'One of the players wins!'
+  # start = false
+  # else
+  # neither player makes a win combination
+  # puts 'Draw!'
+  # start = false
+  # end
+end
+# rubocop:enable Lint/UselessAssignment
