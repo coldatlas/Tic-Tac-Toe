@@ -23,13 +23,6 @@ puts '╚═══╩═══╩═══╝'
 puts 'Instructions : Enter a number from 1 to 9 to use one of the boxes.'
 start = true
 while start == true
-  puts '╔═══╦═══╦═══╗'
-  puts '║   ║   ║   ║'
-  puts '╠═══╬═══╬═══╣'
-  puts '║   ║   ║   ║'
-  puts '╠═══╬═══╬═══╣'
-  puts '║   ║   ║   ║'
-  puts '╚═══╩═══╩═══╝'
   puts "#{p1}'s turn : "
   # updates position of player 1 on the board
   p1_position = gets.chomp
@@ -57,13 +50,14 @@ while start == true
   puts '║   ║   ║   ║'
   puts '╚═══╩═══╩═══╝'
   # if a player makes a winning move, show "player 1 wins" or "player 2 wins"
-  win_combination = false
-  if win_combination == true
-    puts 'One of the players wins!'
-    start = false
-  else # neither player makes a win combination
-    puts 'Draw!'
-    start = false
-  end
+  # win_combination = false
+  # if win_combination == true
+  # puts 'One of the players wins!'
+  # start = false
+  # else
+  # neither player makes a win combination
+  # puts 'Draw!'
+  # start = false
+  # end
 end
 # rubocop:enable Lint/UselessAssignment, Style/IdenticalConditionalBranches
