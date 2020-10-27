@@ -1,25 +1,20 @@
 class Board
+  attr_reader :inputs
+  attr_accessor :board
 
   def new
-    @s1 = [" "]
-    @s2 = [" "]
-    @s3 = [" "]
-    @s4 = [" "]
-    @s5 = [" "]
-    @s6 = [" "]
-    @s7 = [" "]
-    @s8 = [" "]
-    @s9 = [" "]
+    @inputs = 0
+    @board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
   end
 
   def display
 
     puts '╔═══╦═══╦═══╗'
-    puts "║ #{@s1} ║ #{@s2} ║ #{@s3} ║"
+    puts "║ #{@board[0]} ║ #{@board[1]} ║ #{@board[2]} ║"
     puts '╠═══╬═══╬═══╣'
-    puts "║ #{@s4} ║ #{@s5} ║ #{@s6} ║"
+    puts "║ #{@board[3]} ║ #{@board[4]} ║ #{@board[5]} ║"
     puts '╠═══╬═══╬═══╣'
-    puts "║ #{@s7} ║ #{@s8} ║ #{@s9} ║"
+    puts "║ #{@board[6]} ║ #{@board[7]} ║ #{@board[8]} ║"
     puts '╚═══╩═══╩═══╝'
 
   end
