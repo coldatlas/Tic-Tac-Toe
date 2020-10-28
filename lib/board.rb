@@ -46,6 +46,34 @@ class Board
     moves += 1
   end
 
+  def win_combos
+    [
+       [@board[0],@board[1],@board[2]],
+       [@board[3],@board[4],@board[5]],
+       [@board[6],@board[7],@board[8]],
+       [@board[0],@board[3],@board[6]],
+       [@board[1],@board[4],@board[7]],
+       [@board[2],@board[5],@board[8]],
+       [@board[2],@board[4],@board[6]],
+       [@board[0],@board[4],@board[8]],
+    ]
+
+  end
+
+
+  def check_win
+    win_combos.each do |i| 
+      if i[0] == "O" && i[1] == "O" && i[2] == "O"
+        puts " #player1 wins!"
+        exit 
+      elsif i[0] == "X" && i[1] == "X" && i[2] == "X"
+        puts "#player2 wins!"
+        exit
+      else
+        puts "tie!"
+      end
+    end
+  end
 
 
 
