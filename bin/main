@@ -1,18 +1,43 @@
 #!/usr/bin/env ruby
 # rubocop:disable Lint/UselessAssignment, Style/IdenticalConditionalBranches
+require_relative '../lib/board'
+require_relative '../lib/player'
+
 puts 'Tic-Tac-Toe : Terminal Edition'
-# Player1 Input
-puts 'Player 1, please enter your name'
-p1 = gets.chomp
-puts 'Player 2, please enter your name'
-p2 = gets.chomp
-puts "Welcome #{p1} and #{p2}"
-puts "#{p1}, X or O?"
-p1_xo = gets.chomp
-p2_xo = p1_xo == 'X' ? 'O' : 'X'
-# variable for each position
-# a range of remaining boxes
-puts "#{p1} is #{p1_xo}, #{p2} is #{p2_xo}"
+
+p1 = Player.new
+p2 = Player.new
+
+def p_name(p1, p2)
+  puts 'Player 1, please enter your name'
+  p1.name = gets.chomp
+  puts 'Player 2, please enter your name'
+  p2.name = gets.chomp
+  puts "Welcome #{p1} and #{p2}"
+end
+
+def p_xo(p1, p2)
+  puts "#{p1}, X or O?"
+  validate_xo_switch = true
+  while validate_xo_switch
+    p1.choice = gets.chomp.upcase
+    if p1.choice == 'X' || p1.choice == 'O'
+      validate_xo_switch = false
+    else
+      puts 'Choose either X or O'
+    end
+    break if check1 == false
+  end
+  p2.choice = 'O' if p1.choice == 'X'
+  p2.choice = 'X' if p1.choice == 'O'
+  puts "#{p1.name} is #{p1.choice}, #{p2.name} is #{p2.choice}"
+end
+
+p_name(p1, p2)
+
+p_xo(p1, p2)
+
+def start(board_new, p1, p2)
 puts '╔═══╦═══╦═══╗'
 puts '║ 1 ║ 2 ║ 3 ║'
 puts '╠═══╬═══╬═══╣'
@@ -21,49 +46,40 @@ puts '╠═══╬═══╬═══╣'
 puts '║ 7 ║ 8 ║ 9 ║'
 puts '╚═══╩═══╩═══╝'
 puts 'Instructions : Enter a number from 1 to 9 to use one of the boxes.'
-start = true
-while start == true
-  puts '╔═══╦═══╦═══╗'
-  puts '║   ║   ║   ║'
-  puts '╠═══╬═══╬═══╣'
-  puts '║   ║   ║   ║'
-  puts '╠═══╬═══╬═══╣'
-  puts '║   ║   ║   ║'
-  puts '╚═══╩═══╩═══╝'
-  puts "#{p1}'s turn : "
-  # updates position of player 1 on the board
-  p1_position = gets.chomp
-  # checks if the position is available
-  # if the position isn't available, game tells player "Invalid move"
-  # Shows the board with the updated position
-  puts '╔═══╦═══╦═══╗'
-  puts '║   ║   ║   ║'
-  puts '╠═══╬═══╬═══╣'
-  puts '║   ║   ║   ║'
-  puts '╠═══╬═══╬═══╣'
-  puts '║   ║   ║   ║'
-  puts '╚═══╩═══╩═══╝'
-  puts "#{p2}'s turn : "
-  # updates position of player 2 on the board
-  p2_position = gets.chomp
-  # checks if the position is available
-  # if the position isn't available, game tells player "Invalid move"
-  # Shows the board with the updated position
-  puts '╔═══╦═══╦═══╗'
-  puts '║   ║   ║   ║'
-  puts '╠═══╬═══╬═══╣'
-  puts '║   ║   ║   ║'
-  puts '╠═══╬═══╬═══╣'
-  puts '║   ║   ║   ║'
-  puts '╚═══╩═══╩═══╝'
-  # if a player makes a winning move, show "player 1 wins" or "player 2 wins"
-  win_combination = false
-  if win_combination == true
-    puts 'One of the players wins!'
-    start = false
-  else # neither player makes a win combination
-    puts 'Draw!'
-    start = false
+puts board_new.show_board
+switch = true
+while switch
+  puts "#{p1.name}'s turn : "
+  position = Integer(gets.chomp)
+  puts board_new.player_move(postition, p1.choice)
+  if board_new.check_win(p1.choice)
+    puts "#{p1.name} You win!"
+    break
   end
+  if board_new.moves == 9
+    puts 'DRAW !'
+    break
+  end
+
+  puts "#{p2.name}'s turn : "
+  position = Integer(gets.chomp)
+  puts board_new.player_move(postition, p2.choice)
+  if board_new.check_win(p2.choice)
+    puts "#{p2.name} You win!"
+    break
+  end
+  if board_new.moves == 9
+    puts 'DRAW !'
+    break
+  end
+ 
+
 end
+end
+
+
+board_new = Board.new
+start(board_new, p1, p2)
+
+
 # rubocop:enable Lint/UselessAssignment, Style/IdenticalConditionalBranches
