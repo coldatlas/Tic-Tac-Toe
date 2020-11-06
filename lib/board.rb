@@ -1,14 +1,14 @@
 class Board
   attr_reader :moves
   attr_accessor :board
+  
 
-  def new
-    @moves = 0
+  def initialize
     @board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+    @moves = 0
   end
 
   def show_board
-
     puts '╔═══╦═══╦═══╗'
     puts "║ #{@board[0]} ║ #{@board[1]} ║ #{@board[2]} ║"
     puts '╠═══╬═══╬═══╣'
@@ -16,7 +16,30 @@ class Board
     puts '╠═══╬═══╬═══╣'
     puts "║ #{@board[6]} ║ #{@board[7]} ║ #{@board[8]} ║"
     puts '╚═══╩═══╩═══╝'
+  end
 
+  # check for row,column, and diagonal match
+
+  def check_win(combo)
+    win_conditions = [
+      [@board[0], @board[1], @board[2]],
+      [@board[3], @board[4], @board[5]],
+      [@board[6], @board[7], @board[8]],
+      [@board[0], @board[3], @board[6]],
+      [@board[1], @board[4], @board[7]],
+      [@board[2], @board[5], @board[8]],
+      [@board[0], @board[4], @board[8]],
+      [@board[2], @board[4], @board[6]]
+    ]
+
+    win_conditions.each do |i|
+      check = i.all? do |number|
+        number == combo
+      end
+      next unless check
+      return true
+    end
+    false
   end
 
    def player_move(square)
@@ -42,38 +65,11 @@ class Board
     @board[6] = chosen_square if square == 7
     @board[7] = chosen_square if square == 8
     @board[8] = chosen_square if square == 9
+    @moves += 1
     show_board
-    moves += 1
+    
   end
-
-  def win_combos
-    [
-       [@board[0],@board[1],@board[2]],
-       [@board[3],@board[4],@board[5]],
-       [@board[6],@board[7],@board[8]],
-       [@board[0],@board[3],@board[6]],
-       [@board[1],@board[4],@board[7]],
-       [@board[2],@board[5],@board[8]],
-       [@board[2],@board[4],@board[6]],
-       [@board[0],@board[4],@board[8]],
-    ]
-
-  end
-
-
-  def check_win
-    win_combos.each do |i| 
-      if i[0] == "O" && i[1] == "O" && i[2] == "O"
-        puts " #player1 wins!"
-        exit 
-      elsif i[0] == "X" && i[1] == "X" && i[2] == "X"
-        puts "#player2 wins!"
-        exit
-      else
-        puts "tie!"
-      end
-    end
-  end
+end
 
 
 
