@@ -44,6 +44,7 @@ def board_check(new_board)
 end
 
 def start(board_new, p1, p2)
+
 puts '╔═══╦═══╦═══╗'
 puts '║ 1 ║ 2 ║ 3 ║'
 puts '╠═══╬═══╬═══╣'
@@ -52,6 +53,7 @@ puts '╠═══╬═══╬═══╣'
 puts '║ 7 ║ 8 ║ 9 ║'
 puts '╚═══╩═══╩═══╝'
 puts 'Instructions : Enter a number from 1 to 9 to use one of the boxes.'
+
 puts board_new.show_board
 switch = true
 while switch
