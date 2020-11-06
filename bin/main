@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-# rubocop:disable Lint/UselessAssignment, Style/IdenticalConditionalBranches
 require_relative '../lib/board'
 require_relative '../lib/player'
 
@@ -81,12 +80,10 @@ while switch
     break
   end
  
-
 end
 end
 
 puts 'Tic-Tac-Toe : Terminal Edition'
-
 
 p1 = Player.new
 p2 = Player.new
@@ -96,5 +93,3 @@ p_xo(p1, p2)
 board_new = Board.new
 
 start(board_new, p1, p2)
-
-# rubocop:enable Metrics/CyclomaticComplexity, Layout/LineLength, Metrics/MethodLength
