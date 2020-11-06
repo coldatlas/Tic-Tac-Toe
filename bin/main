@@ -3,21 +3,16 @@
 require_relative '../lib/board'
 require_relative '../lib/player'
 
-puts 'Tic-Tac-Toe : Terminal Edition'
-
-p1 = Player.new
-p2 = Player.new
-
 def p_name(p1, p2)
   puts 'Player 1, please enter your name'
   p1.name = gets.chomp
   puts 'Player 2, please enter your name'
   p2.name = gets.chomp
-  puts "Welcome #{p1} and #{p2}"
+  puts "Let's start #{p1.name} and #{p2.name}"
 end
 
 def p_xo(p1, p2)
-  puts "#{p1}, X or O?"
+  puts "#{p1.name}, X or O?"
   validate_xo_switch = true
   while validate_xo_switch
     p1.choice = gets.chomp.upcase
@@ -26,16 +21,27 @@ def p_xo(p1, p2)
     else
       puts 'Choose either X or O'
     end
-    break if check1 == false
+    break if validate_xo_switch == false
   end
   p2.choice = 'O' if p1.choice == 'X'
   p2.choice = 'X' if p1.choice == 'O'
   puts "#{p1.name} is #{p1.choice}, #{p2.name} is #{p2.choice}"
 end
 
-p_name(p1, p2)
-
-p_xo(p1, p2)
+def board_check(new_board)
+  check2 = false
+  until check2
+    begin
+      position = Integer(gets.chomp)
+    rescue StandardError
+      puts 'Provide a valid integer'
+      retry
+    end
+    check2 = true if position < 10 && new_board.player_move(position) == ' '
+    puts 'Please provide a valid integer (1-9) which is not used previously' if position > 9 || new_board.player_move(position) != ' '
+  end
+  position
+end
 
 def start(board_new, p1, p2)
 puts '╔═══╦═══╦═══╗'
@@ -51,7 +57,7 @@ switch = true
 while switch
   puts "#{p1.name}'s turn : "
   position = Integer(gets.chomp)
-  puts board_new.player_move(postition, p1.choice)
+  puts board_new.player_move_update(position, p1.choice)
   if board_new.check_win(p1.choice)
     puts "#{p1.name} You win!"
     break
@@ -63,7 +69,7 @@ while switch
 
   puts "#{p2.name}'s turn : "
   position = Integer(gets.chomp)
-  puts board_new.player_move(postition, p2.choice)
+  puts board_new.player_move_update(position, p2.choice)
   if board_new.check_win(p2.choice)
     puts "#{p2.name} You win!"
     break
@@ -77,9 +83,16 @@ while switch
 end
 end
 
+puts 'Tic-Tac-Toe : Terminal Edition'
+
+
+p1 = Player.new
+p2 = Player.new
+p_name(p1, p2)
+p_xo(p1, p2)
 
 board_new = Board.new
+
 start(board_new, p1, p2)
 
-
-# rubocop:enable Lint/UselessAssignment, Style/IdenticalConditionalBranches
+# rubocop:enable Metrics/CyclomaticComplexity, Layout/LineLength, Metrics/MethodLength
