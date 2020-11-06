@@ -37,7 +37,7 @@ def board_check(new_board)
       retry
     end
     check2 = true if position < 10 && new_board.player_move(position) == ' '
-    puts 'Please provide a valid integer (1-9) which is not used previously' if position > 9 || new_board.player_move(position) != ' '
+    puts 'That square is already used' if position > 9 || new_board.player_move(position) != ' '
   end
   position
 end
