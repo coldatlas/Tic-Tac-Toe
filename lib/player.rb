@@ -1,7 +1,7 @@
 class Player
-    attr_accessor :name, :xo
-    def new_player(name = ' ', xo = ' ')
+    attr_accessor :name, :choice
+    def new_player(name = ' ', choice = ' ')
       @name = name
-      @choice = xo
+      @choice = choice
     end
 end
