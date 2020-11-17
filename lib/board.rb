@@ -35,7 +35,7 @@ class Board
         number == combo
       end
       next unless check
-      
+
       return true
     end
     false
@@ -68,4 +68,4 @@ class Board
     show_board
   end
 end
-# rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/LineLength
+# rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/LineLength

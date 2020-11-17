@@ -81,7 +81,6 @@ end
 
 puts 'Tic-Tac-Toe : Terminal Edition'
 
-
 pl1 = Player.new
 pl2 = Player.new
 p_name(pl1, pl2)
@@ -91,4 +90,4 @@ board_new = Board.new
 
 start(board_new, pl1, pl2)
 
-# rubocop:enable Metrics/CyclomaticComplexity, Layout/LineLength, Metrics/MethodLength
+# rubocop:enable Metrics/CyclomaticComplexity, Metrics/MethodLength
