@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/LineLength
 class Board
   attr_accessor :board
   attr_reader :moves
@@ -34,6 +35,7 @@ class Board
         number == combo
       end
       next unless check
+      
       return true
     end
     false
@@ -52,7 +54,7 @@ class Board
     chosen_square
   end
 
-  def player_move_update(square, choice)
+  def pl_update(square, choice)
     @board[0] = choice if square == 1
     @board[1] = choice if square == 2
     @board[2] = choice if square == 3
@@ -66,3 +68,4 @@ class Board
     show_board
   end
 end
+# rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/LineLength

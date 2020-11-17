@@ -1,31 +1,30 @@
 #!/usr/bin/env ruby
-# rubocop:disable Metrics/CyclomaticComplexity, Layout/LineLength, Metrics/MethodLength
+# rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
 require_relative '../lib/board'
 require_relative '../lib/player'
 
-def p_name(p1, p2)
+def p_name(pl1, pl2)
   puts 'Player 1, please enter your name'
-  p1.name = gets.chomp
+  pl1.name = gets.chomp
   puts 'Player 2, please enter your name'
-  p2.name = gets.chomp
-  puts "Let's start #{p1.name} and #{p2.name}"
+  pl2.name = gets.chomp
+  puts "Let's start #{pl1.name} and #{pl2.name}"
 end
 
-def p_xo(p1, p2)
-  puts "#{p1.name}, X or O?"
+def p_xo(pl1, pl2)
+  puts "#{pl1.name}, X or O?"
   validate_xo_switch = true
   while validate_xo_switch
-    p1.choice = gets.chomp.upcase
-    if p1.choice == 'X' || p1.choice == 'O'
+    pl1.choice = gets.chomp.upcase
+    if pl1.choice == 'X' || pl1.choice == 'O'
       validate_xo_switch = false
     else
       puts 'Choose either X or O'
     end
     break if validate_xo_switch == false
   end
-  p2.choice = 'O' if p1.choice == 'X'
-  p2.choice = 'X' if p1.choice == 'O'
-  puts "#{p1.name} is #{p1.choice}, #{p2.name} is #{p2.choice}"
+  pl2.choice = pl1.choice == 'X' ? 'O' : 'X'
+  puts "#{pl1.name} is #{pl1.choice}, #{pl2.name} is #{pl2.choice}"
 end
 
 def board_check(new_board)
@@ -43,53 +42,53 @@ def board_check(new_board)
   position
 end
 
-def start(board_new, p1, p2)
-puts '╔═══╦═══╦═══╗'
-puts '║ 1 ║ 2 ║ 3 ║'
-puts '╠═══╬═══╬═══╣'
-puts '║ 4 ║ 5 ║ 6 ║'
-puts '╠═══╬═══╬═══╣'
-puts '║ 7 ║ 8 ║ 9 ║'
-puts '╚═══╩═══╩═══╝'
-puts 'Instructions : Enter a number from 1 to 9 to use one of the boxes.'
-puts board_new.show_board
-switch = true
-while switch
-  puts "#{p1.name}'s turn : "
-  pos = board_check(board_new)
-  puts board_new.player_move_update(pos, p1.choice)
-  if board_new.check_win(p1.choice)
-    puts "#{p1.name} You win!"
-    break
+def start(board_new, pl1, pl2)
+  puts '╔═══╦═══╦═══╗'
+  puts '║ 1 ║ 2 ║ 3 ║'
+  puts '╠═══╬═══╬═══╣'
+  puts '║ 4 ║ 5 ║ 6 ║'
+  puts '╠═══╬═══╬═══╣'
+  puts '║ 7 ║ 8 ║ 9 ║'
+  puts '╚═══╩═══╩═══╝'
+  puts 'Instructions : Enter a number from 1 to 9 to use one of the boxes.'
+  puts board_new.show_board
+  switch = true
+  while switch
+    puts "#{pl1.name}'s turn : "
+    pos = board_check(board_new)
+    puts board_new.pl_update(pos, pl1.choice)
+    if board_new.check_win(pl1.choice)
+      puts "#{pl1.name} You win!"
+      break
+    end
+    if board_new.moves == 9
+      puts 'DRAW !'
+      break
+    end
+    puts "#{pl2.name}'s turn : "
+    pos = board_check(board_new)
+    puts board_new.pl_update(pos, pl2.choice)
+    if board_new.check_win(pl2.choice)
+      puts "#{pl2.name} You win!"
+      break
+    end
+    if board_new.moves == 9
+      puts 'DRAW !'
+      break
+    end
   end
-  if board_new.moves == 9
-    puts 'DRAW !'
-    break
-  end
-  puts "#{p2.name}'s turn : "
-  pos = board_check(board_new)
-  puts board_new.player_move_update(pos, p2.choice)
-  if board_new.check_win(p2.choice)
-    puts "#{p2.name} You win!"
-    break
-  end
-  if board_new.moves == 9
-    puts 'DRAW !'
-    break
-  end
-end
 end
 
 puts 'Tic-Tac-Toe : Terminal Edition'
 
 
-p1 = Player.new
-p2 = Player.new
-p_name(p1, p2)
-p_xo(p1, p2)
+pl1 = Player.new
+pl2 = Player.new
+p_name(pl1, pl2)
+p_xo(pl1, pl2)
 
 board_new = Board.new
 
-start(board_new, p1, p2)
+start(board_new, pl1, pl2)
 
 # rubocop:enable Metrics/CyclomaticComplexity, Layout/LineLength, Metrics/MethodLength
