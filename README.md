@@ -24,9 +24,15 @@ Prerequisites
  Git
  Ruby
 
+How to start game
+
+[Download](Clone the repository to your machine)
+
 $ git clone https://github.com/coldatlas/Tic-Tac-Toe
-cd Tic-Tac-Toe
-run bin/main.rb
+
+Navigate to the project folder and execute the "bin/main.exe" file.
+
+Type in main in the terminal.
 
 ![screenshot](Capture.PNG)
 
@@ -50,14 +56,17 @@ You can't choose a square that has already been chosen.
 - Twitter: [@Mina-twitter](https://twitter.com/coldyatlas)
 - Linkedin: [Mina-linkedin-link](https://www.linkedin.com/in/coldyatlas/)
 
-## 🤝 Contributing
-
- Contributions, issues, and feature requests are welcome!
+🤝 Contributing
+Contributions, issues, and feature requests are welcome!
 
 Feel free to check the issues page.
 
-Show your support Give and ⭐️ if you like this project!
+Show your support
+Give a ⭐️ if you like this project!
 
-Acknowledgments Hat tip to anyone who's code was used Inspiration etc
-
-📝 License This project is a collaboration project of Microverse students. All rights are reserved for Mina Ibrahim.
+Acknowledgments
+Hat tip to anyone whose code was used
+Inspiration
+etc
+📝 License
+This project is MIT licensed.
