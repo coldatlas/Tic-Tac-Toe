@@ -1,65 +1,93 @@
 #!/usr/bin/env ruby
-# rubocop:disable Lint/UselessAssignment
-puts 'Tic-Tac-Toe : Terminal Edition'
-# Player1 Input
-puts 'Player 1, please enter your name'
-p1 = gets.chomp
-puts 'Player 2, please enter your name'
-p2 = gets.chomp
-puts "Welcome #{p1} and #{p2}"
-puts "#{p1}, X or O?"
-p1_xo = gets.chomp
-p2_xo = p1_xo == 'X' ? 'O' : 'X'
-# variable for each position
-# a range of remaining boxes
-puts "#{p1} is #{p1_xo}, #{p2} is #{p2_xo}"
-puts '╔═══╦═══╦═══╗'
-puts '║ 1 ║ 2 ║ 3 ║'
-puts '╠═══╬═══╬═══╣'
-puts '║ 4 ║ 5 ║ 6 ║'
-puts '╠═══╬═══╬═══╣'
-puts '║ 7 ║ 8 ║ 9 ║'
-puts '╚═══╩═══╩═══╝'
-puts 'Instructions : Enter a number from 1 to 9 to use one of the boxes.'
-start = true
-while start == true
-  puts "#{p1}'s turn : "
-  # updates position of player 1 on the board
-  p1_position = gets.chomp
-  # checks if the position is available
-  # if the position isn't available, game tells player "Invalid move"
-  # if the position is a winning move, game tells player "You Win!"
-  # Shows the board with the updated position
-  puts '╔═══╦═══╦═══╗'
-  puts '║   ║   ║   ║'
-  puts '╠═══╬═══╬═══╣'
-  puts '║   ║   ║   ║'
-  puts '╠═══╬═══╬═══╣'
-  puts '║   ║   ║   ║'
-  puts '╚═══╩═══╩═══╝'
-  puts "#{p2}'s turn : "
-  # updates position of player 2 on the board
-  p2_position = gets.chomp
-  # checks if the position is available
-  # if the position isn't available, game tells player "Invalid move"
-  # if the position is a winning move, game tells player "You Win!"
-  # Shows the board with the updated position
-  puts '╔═══╦═══╦═══╗'
-  puts '║   ║   ║   ║'
-  puts '╠═══╬═══╬═══╣'
-  puts '║   ║   ║   ║'
-  puts '╠═══╬═══╬═══╣'
-  puts '║   ║   ║   ║'
-  puts '╚═══╩═══╩═══╝'
-  # if a player makes a winning move, show "player 1 wins" or "player 2 wins"
-  # win_combination = false
-  # if win_combination == true
-  # puts 'One of the players wins!'
-  # start = false
-  # else
-  # neither player makes a win combination
-  # puts 'Draw!'
-  # start = false
-  # end
+# rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
+require_relative '../lib/board'
+require_relative '../lib/player'
+
+def p_name(pl1, pl2)
+  puts 'Player 1, please enter your name'
+  pl1.name = gets.chomp
+  puts 'Player 2, please enter your name'
+  pl2.name = gets.chomp
+  puts "Let's start #{pl1.name} and #{pl2.name}"
 end
-# rubocop:enable Lint/UselessAssignment
+
+def p_xo(pl1, pl2)
+  puts "#{pl1.name}, X or O?"
+  validate_xo_switch = true
+  while validate_xo_switch
+    pl1.choice = gets.chomp.upcase
+    if pl1.choice == 'X' || pl1.choice == 'O'
+      validate_xo_switch = false
+    else
+      puts 'Choose either X or O'
+    end
+    break if validate_xo_switch == false
+  end
+  pl2.choice = pl1.choice == 'X' ? 'O' : 'X'
+  puts "#{pl1.name} is #{pl1.choice}, #{pl2.name} is #{pl2.choice}"
+end
+
+def board_check(new_board)
+  switch2 = false
+  until switch2
+    begin
+      position = Integer(gets.chomp)
+    rescue StandardError
+      puts 'Provide a valid integer'
+      retry
+    end
+    switch2 = true if position < 10 && new_board.player_move(position) == ' '
+    puts 'Square already taken or does not exist.' if position > 9 || new_board.player_move(position) != ' '
+  end
+  position
+end
+
+def start(board_new, pl1, pl2)
+  puts '╔═══╦═══╦═══╗'
+  puts '║ 1 ║ 2 ║ 3 ║'
+  puts '╠═══╬═══╬═══╣'
+  puts '║ 4 ║ 5 ║ 6 ║'
+  puts '╠═══╬═══╬═══╣'
+  puts '║ 7 ║ 8 ║ 9 ║'
+  puts '╚═══╩═══╩═══╝'
+  puts 'Instructions : Enter a number from 1 to 9 to use one of the boxes.'
+  puts board_new.show_board
+  switch = true
+  while switch
+    puts "#{pl1.name}'s turn : "
+    pos = board_check(board_new)
+    puts board_new.pl_update(pos, pl1.choice)
+    if board_new.check_win(pl1.choice)
+      puts "#{pl1.name} You win!"
+      break
+    end
+    if board_new.moves == 9
+      puts 'DRAW !'
+      break
+    end
+    puts "#{pl2.name}'s turn : "
+    pos = board_check(board_new)
+    puts board_new.pl_update(pos, pl2.choice)
+    if board_new.check_win(pl2.choice)
+      puts "#{pl2.name} You win!"
+      break
+    end
+    if board_new.moves == 9
+      puts 'DRAW !'
+      break
+    end
+  end
+end
+
+puts 'Tic-Tac-Toe : Terminal Edition'
+
+pl1 = Player.new
+pl2 = Player.new
+p_name(pl1, pl2)
+p_xo(pl1, pl2)
+
+board_new = Board.new
+
+start(board_new, pl1, pl2)
+
+# rubocop:enable Metrics/CyclomaticComplexity, Metrics/MethodLength
