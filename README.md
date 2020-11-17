@@ -5,8 +5,11 @@ Tic Tac Toe project
 This project is creating a terminal Tic Tac Toe game using Ruby. Using 4 steps of creating on github.
 
 ## Built With
+
  Ruby
+
  GIT
+
  VS CODE
 
 
@@ -14,27 +17,32 @@ This project is creating a terminal Tic Tac Toe game using Ruby. Using 4 steps o
 
 To get a local copy up and running follow these simple example steps.
 
-Prerequisites Text editor, Github profile, Git, and Ruby.
+Prerequisites
+
+ Text editor
+ Github profile
+ Git
+ Ruby
 
 $ git clone https://github.com/coldatlas/Tic-Tac-Toe
 cd Tic-Tac-Toe
-execute "main" from terminal
+run bin/main.rb
 
 ![screenshot](Capture.PNG)
 
 _________________________________________
 
-Each player enters their name
+RULES FOR TIC-TAC-TOE.
 
-The first player chooses X or O
+The game is played on a grid that's 3 squares by 3 squares.
 
-The second player will get the other choice
+You are X, your friend (or the computer in this case) is O.
 
-The first one to get a winning combo wins
+The first player to get 3 of her marks in a row (up, down, across, or diagonally) is the winner.
 
-A winning Combo is made when a player acquires 3 squares in a row or column or a diagonal.
+When all 9 squares are full, the game is over.
 
-If squares run out without a winning combination then it's a draw
+You can't choose a square that has already been chosen.
 
 👤 Author
 
