@@ -19,10 +19,10 @@ To get a local copy up and running follow these simple example steps.
 
 ## Prerequisites
 
- Text editor
- Github profile
- Git
- Ruby
+- Text editor
+- Github profile
+- Git
+- Ruby
 
 ## How to start game
 
