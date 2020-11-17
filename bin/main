@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-# rubocop:disable Lint/UselessAssignment, Style/IdenticalConditionalBranches
+# rubocop:disable Metrics/CyclomaticComplexity, Layout/LineLength, Metrics/MethodLength
 require_relative '../lib/board'
 require_relative '../lib/player'
 
@@ -29,16 +29,16 @@ def p_xo(p1, p2)
 end
 
 def board_check(new_board)
-  check2 = false
-  until check2
+  switch2 = false
+  until switch2
     begin
       position = Integer(gets.chomp)
     rescue StandardError
       puts 'Provide a valid integer'
       retry
     end
-    check2 = true if position < 10 && new_board.player_move(position) == ' '
-    puts 'That square is already used' if position > 9 || new_board.player_move(position) != ' '
+    switch2 = true if position < 10 && new_board.player_move(position) == ' '
+    puts 'Square already taken or does not exist.' if position > 9 || new_board.player_move(position) != ' '
   end
   position
 end
@@ -56,8 +56,8 @@ puts board_new.show_board
 switch = true
 while switch
   puts "#{p1.name}'s turn : "
-  position = Integer(gets.chomp)
-  puts board_new.player_move_update(position, p1.choice)
+  pos = board_check(board_new)
+  puts board_new.player_move_update(pos, p1.choice)
   if board_new.check_win(p1.choice)
     puts "#{p1.name} You win!"
     break
@@ -66,10 +66,9 @@ while switch
     puts 'DRAW !'
     break
   end
-
   puts "#{p2.name}'s turn : "
-  position = Integer(gets.chomp)
-  puts board_new.player_move_update(position, p2.choice)
+  pos = board_check(board_new)
+  puts board_new.player_move_update(pos, p2.choice)
   if board_new.check_win(p2.choice)
     puts "#{p2.name} You win!"
     break
@@ -78,8 +77,6 @@ while switch
     puts 'DRAW !'
     break
   end
- 
-
 end
 end
 

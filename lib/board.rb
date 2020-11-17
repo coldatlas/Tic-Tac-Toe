@@ -1,7 +1,6 @@
 class Board
-  attr_reader :moves
   attr_accessor :board
-  
+  attr_reader :moves
 
   def initialize
     @board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
@@ -17,8 +16,6 @@ class Board
     puts "║ #{@board[6]} ║ #{@board[7]} ║ #{@board[8]} ║"
     puts '╚═══╩═══╩═══╝'
   end
-
-  # check for row,column, and diagonal match
 
   def check_win(combo)
     win_conditions = [
@@ -42,7 +39,7 @@ class Board
     false
   end
 
-   def player_move(square)
+  def player_move(square)
     chosen_square = @board[0] if square == 1
     chosen_square = @board[1] if square == 2
     chosen_square = @board[2] if square == 3
@@ -55,18 +52,17 @@ class Board
     chosen_square
   end
 
-  def player_move_update(square ,chosen_square)
-    @board[0] = chosen_square if square == 1
-    @board[1] = chosen_square if square == 2
-    @board[2] = chosen_square if square == 3
-    @board[3] = chosen_square if square == 4
-    @board[4] = chosen_square if square == 5
-    @board[5] = chosen_square if square == 6
-    @board[6] = chosen_square if square == 7
-    @board[7] = chosen_square if square == 8
-    @board[8] = chosen_square if square == 9
+  def player_move_update(square, choice)
+    @board[0] = choice if square == 1
+    @board[1] = choice if square == 2
+    @board[2] = choice if square == 3
+    @board[3] = choice if square == 4
+    @board[4] = choice if square == 5
+    @board[5] = choice if square == 6
+    @board[6] = choice if square == 7
+    @board[7] = choice if square == 8
+    @board[8] = choice if square == 9
     @moves += 1
     show_board
-    
   end
 end
