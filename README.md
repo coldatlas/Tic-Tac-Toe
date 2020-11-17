@@ -2,24 +2,53 @@
 
 Tic Tac Toe project
 
-This project is creating a terminal Tic Tac Toe game using Ruby.
+This project is creating a terminal Tic Tac Toe game using Ruby. Using 4 steps of creating on github.
 
 ## Built With
+
  Ruby
+
  GIT
- VSCODE
+
+ VS CODE
 
 
 <h1>Getting Started</h1>
 
 To get a local copy up and running follow these simple example steps.
 
-Prerequisites Text editor,Github profile, Git and Ruby.
+## Prerequisites
 
---Game features will added next updates--
+- Text editor
+- Github profile
+- Git
+- Ruby
 
+## How to start game
 
-👤 Author
+- $ git clone https://github.com/coldatlas/Tic-Tac-Toe
+
+- cd Tic-Tac-Toe folder
+
+- run bin/main.rb from your terminal
+
+![screenshot](Capture.PNG)
+
+_________________________________________
+
+## RULES FOR TIC-TAC-TOE.
+
+The game is played on a grid that's 3 squares by 3 squares.
+
+You are X, your friend (or the computer in this case) is O.
+
+The first player to get 3 of her marks in a row (up, down, across, or diagonally) is the winner.
+
+When all 9 squares are full, the game is over.
+
+You can't choose a square that has already been chosen.
+
+👤 **Author**
 
 - Github: [@Mina-github ](https://github.com/coldatlas)
 - Twitter: [@Mina-twitter](https://twitter.com/coldyatlas)
@@ -27,12 +56,20 @@ Prerequisites Text editor,Github profile, Git and Ruby.
 
 ## 🤝 Contributing
 
- Contributions, issues and feature requests are welcome!
+Contributions, issues, and feature requests are welcome!
 
 Feel free to check the issues page.
 
-Show your support Give a ⭐️ if you like this project!
+## Show your support
 
-Acknowledgments Hat tip to anyone whose code was used Inspiration etc
+Give a ⭐️ if you like this project!
 
-📝 License This project is a collaboration project of microverse students. All rights are reserved for Mina Ibrahim.
+## Acknowledgments
+
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
+
+## 📝 License
+
+This project is MIT licensed.
