@@ -36,7 +36,7 @@ To get a local copy up and running follow these simple example steps.
 
 _________________________________________
 
-RULES FOR TIC-TAC-TOE.
+## RULES FOR TIC-TAC-TOE.
 
 The game is played on a grid that's 3 squares by 3 squares.
 
