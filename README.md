@@ -38,7 +38,7 @@ or
 
 Type in main in the terminal.
 
-![screenshot](.Capture.PNG)
+![screenshot](Capture.PNG)
 
 
 👤 Author
