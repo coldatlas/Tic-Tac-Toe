@@ -17,22 +17,20 @@ This project is creating a terminal Tic Tac Toe game using Ruby. Using 4 steps o
 
 To get a local copy up and running follow these simple example steps.
 
-Prerequisites
+## Prerequisites
 
  Text editor
  Github profile
  Git
  Ruby
 
-How to start game
+## How to start game
 
-[Download](Clone the repository to your machine)
+- $ git clone https://github.com/coldatlas/Tic-Tac-Toe
 
-$ git clone https://github.com/coldatlas/Tic-Tac-Toe
+- cd Tic-Tac-Toe folder
 
-Navigate to the project folder and execute the "bin/main.exe" file.
-
-Type in main in the terminal.
+- run bin/main.rb from your terminal
 
 ![screenshot](Capture.PNG)
 
@@ -50,23 +48,28 @@ When all 9 squares are full, the game is over.
 
 You can't choose a square that has already been chosen.
 
-👤 Author
+👤 **Author**
 
 - Github: [@Mina-github ](https://github.com/coldatlas)
 - Twitter: [@Mina-twitter](https://twitter.com/coldyatlas)
 - Linkedin: [Mina-linkedin-link](https://www.linkedin.com/in/coldyatlas/)
 
-🤝 Contributing
+## 🤝 Contributing
+
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the issues page.
 
-Show your support
+## Show your support
+
 Give a ⭐️ if you like this project!
 
-Acknowledgments
-Hat tip to anyone whose code was used
-Inspiration
-etc
-📝 License
+## Acknowledgments
+
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
+
+## 📝 License
+
 This project is MIT licensed.
